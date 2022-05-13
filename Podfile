@@ -8,3 +8,7 @@ end
 target 'HTTPNativeAPI' do
   shared_pods
 end
+
+target 'HTTPNativeAPI-App' do
+
+end

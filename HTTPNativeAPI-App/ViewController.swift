@@ -12,10 +12,13 @@ import HTTPNativeAPI
 final class ViewController: UIViewController {
     
     @IBOutlet private var webView: WKWebView!
-    private let sevrer = ServerManager(port: 8080)
+    private let server = ServerManager(port: 8080)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        server.start { serverURL in
+            self.webView.load(URLRequest(url: serverURL ?? URL(fileURLWithPath: "")))
+        }
     }
 
 }

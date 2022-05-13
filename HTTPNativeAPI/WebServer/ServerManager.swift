@@ -8,23 +8,30 @@
 import Foundation
 import GCDWebServer
 
-public class ServerManager {
+public struct ServerManager: Server {
+    public var port: UInt
+    private var baseURL: String
+    private var endpoints: [Endpoint]
     
-    private let webServer: GCDWebServer = GCDWebServer()
-    private let port: UInt
-    
-    public init(port: UInt) {
+    public init(port: UInt, baseURL: String) {
         self.port = port
-        webServer.addDefaultHandler(forMethod: "GET",
-                                    request: GCDWebServerRequest.self,
-                                    processBlock: { request in
-            return GCDWebServerDataResponse(html:"<html><body><p>Hello World</p></body></html>")
-        })
+        self.baseURL = baseURL
+        self.endpoints = []
     }
     
-    public func start(completion: @escaping(URL?) -> Void) {
-        webServer.start(withPort: port, bonjourName: nil)
-        completion(webServer.serverURL)
+    public func getBaseURL() -> String { self.baseURL }
+    
+    public mutating func addEndpoint(_ endpoint: Endpoint) {
+        self.endpoints.append(endpoint)
     }
     
+    public func getEndpoints() -> [Endpoint] { self.endpoints }
+}
+
+public struct Endpoint {
+    private let path: String
+    
+    public init(path: String) {
+        self.path = path
+    }
 }

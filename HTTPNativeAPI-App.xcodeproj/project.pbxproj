@@ -22,6 +22,7 @@
 		AFBC7070282EE2EF00DBB163 /* HTTPNativeAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBC7045282EBB4500DBB163 /* HTTPNativeAPI.framework */; };
 		AFBC7071282EE2EF00DBB163 /* HTTPNativeAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFBC7045282EBB4500DBB163 /* HTTPNativeAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AFBC7074282EEA9600DBB163 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AFDD0DC6282EFBB20080C7FC /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDD0DC5282EFBB20080C7FC /* Server.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		AFBC704E282EBB4600DBB163 /* HTTPNativeAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HTTPNativeAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBC7055282EBB4600DBB163 /* HTTPNativeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNativeAPITests.swift; sourceTree = "<group>"; };
 		AFBC7064282EBC7500DBB163 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		AFDD0DC5282EFBB20080C7FC /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		C67523BFF487382A45AB3C9A /* Pods-HTTPNativeAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI.release.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI/Pods-HTTPNativeAPI.release.xcconfig"; sourceTree = "<group>"; };
 		DE19FFB3DB7EC638B34A6A14 /* Pods-HTTPNativeAPI-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI-App.release.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI-App/Pods-HTTPNativeAPI-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,9 +172,18 @@
 		AFBC7063282EBC7500DBB163 /* WebServer */ = {
 			isa = PBXGroup;
 			children = (
+				AFDD0DC4282EFB900080C7FC /* Protocols */,
 				AFBC7064282EBC7500DBB163 /* ServerManager.swift */,
 			);
 			path = WebServer;
+			sourceTree = "<group>";
+		};
+		AFDD0DC4282EFB900080C7FC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AFDD0DC5282EFBB20080C7FC /* Server.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B311876053B6BAF9AA80DD63 /* Pods */ = {
@@ -416,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFBC7068282EBCDD00DBB163 /* ServerManager.swift in Sources */,
+				AFDD0DC6282EFBB20080C7FC /* Server.swift in Sources */,
 				AFBC7049282EBB4500DBB163 /* HTTPNativeAPI.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,25 +7,13 @@
 
 import GCDWebServer
 
-public protocol Server {
+internal protocol Server {
     var webServer: GCDWebServer { get }
     var port: UInt { get }
     func start(success: @escaping(URL) -> Void, failure: @escaping(Error?) -> Void)
+    func stop()
 }
 
-public extension Server {
+internal extension Server {
     var webServer: GCDWebServer { GCDWebServer() }
-    
-    func start(success: @escaping(URL) -> Void, failure: @escaping(Error?) -> Void) {
-        if webServer.start(withPort: port, bonjourName: nil) {
-            if let serverURL = webServer.serverURL {
-                success(serverURL)
-            } else {
-                failure(nil)
-            }
-        } else {
-            failure(nil)
-        }
-    }
 }
-

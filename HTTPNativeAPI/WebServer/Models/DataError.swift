@@ -15,6 +15,6 @@ public struct DataError {
     }
     
     func getJSONResponse() -> [String: Any] {
-        ["status": status, "description": description] as [String: Any]
+        ["description": description] as [String: Any]
     }
 }

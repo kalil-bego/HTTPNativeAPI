@@ -16,12 +16,12 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        server.addEndpoint(GetTestEndpoint())
         server.start(
             success: serverStarted(_:),
             failure: serverFailure(_:)
         )
-        
-        server.addEndpoint(GetTestEndpoint())
+
         server.getEndpoints().forEach { endpoint in
             print(endpoint.path)
         }

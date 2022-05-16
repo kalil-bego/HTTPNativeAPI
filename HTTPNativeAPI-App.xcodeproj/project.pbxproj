@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00F30818482F6E6781FD8285 /* Pods_HTTPNativeAPI_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543CF3745DBF8331968666CC /* Pods_HTTPNativeAPI_App.framework */; };
+		160B7285A8AB85F01AFA1129 /* Pods_HTTPNativeAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A483B978917A9FFB0B52EE52 /* Pods_HTTPNativeAPI.framework */; };
 		AF55F22E2830272100240C47 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55F22D2830272100240C47 /* ServerError.swift */; };
 		AF55F231283282CF00240C47 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55F230283282CF00240C47 /* Endpoint.swift */; };
 		AF55F2332832855F00240C47 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55F2322832855F00240C47 /* Methods.swift */; };
@@ -29,7 +29,7 @@
 		AFBC7071282EE2EF00DBB163 /* HTTPNativeAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFBC7045282EBB4500DBB163 /* HTTPNativeAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AFBC7074282EEA9600DBB163 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AFDD0DC6282EFBB20080C7FC /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDD0DC5282EFBB20080C7FC /* Server.swift */; };
-		E5A59381899A56B05171AA6A /* Pods_HTTPNativeAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A8097998DF5C041990EDDE /* Pods_HTTPNativeAPI.framework */; };
+		D5FC8F9B193AFB6C5F996623 /* Pods_HTTPNativeAPI_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444F26A2D73E6DC61B357E73 /* Pods_HTTPNativeAPI_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,12 +72,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		14D3F5872AED608A90D303AB /* Pods-HTTPNativeAPI-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI-App.release.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI-App/Pods-HTTPNativeAPI-App.release.xcconfig"; sourceTree = "<group>"; };
-		15A8097998DF5C041990EDDE /* Pods_HTTPNativeAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTTPNativeAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41A1399AC7A24A1C94686A95 /* Pods-HTTPNativeAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI.release.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI/Pods-HTTPNativeAPI.release.xcconfig"; sourceTree = "<group>"; };
-		4F9E4618E6812A7445966C6F /* Pods-HTTPNativeAPI-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI-App.debug.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI-App/Pods-HTTPNativeAPI-App.debug.xcconfig"; sourceTree = "<group>"; };
-		543CF3745DBF8331968666CC /* Pods_HTTPNativeAPI_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTTPNativeAPI_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		85612BC29F27E2AC37D729A0 /* Pods-HTTPNativeAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI.debug.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI/Pods-HTTPNativeAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		444F26A2D73E6DC61B357E73 /* Pods_HTTPNativeAPI_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTTPNativeAPI_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FF8314C46EFEC4EE0413BF6 /* Pods-HTTPNativeAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI.release.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI/Pods-HTTPNativeAPI.release.xcconfig"; sourceTree = "<group>"; };
+		5C5EE4A54B5C507ADFBD5405 /* Pods-HTTPNativeAPI-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI-App.release.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI-App/Pods-HTTPNativeAPI-App.release.xcconfig"; sourceTree = "<group>"; };
+		A483B978917A9FFB0B52EE52 /* Pods_HTTPNativeAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTTPNativeAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF55F22D2830272100240C47 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		AF55F230283282CF00240C47 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		AF55F2322832855F00240C47 /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
@@ -99,6 +97,8 @@
 		AFBC7055282EBB4600DBB163 /* HTTPNativeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNativeAPITests.swift; sourceTree = "<group>"; };
 		AFBC7064282EBC7500DBB163 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		AFDD0DC5282EFBB20080C7FC /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		B833EA825BC4A184CB170BCE /* Pods-HTTPNativeAPI-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI-App.debug.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI-App/Pods-HTTPNativeAPI-App.debug.xcconfig"; sourceTree = "<group>"; };
+		F43B630BE26F01ED36164ECD /* Pods-HTTPNativeAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTTPNativeAPI.debug.xcconfig"; path = "Target Support Files/Pods-HTTPNativeAPI/Pods-HTTPNativeAPI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFBC7070282EE2EF00DBB163 /* HTTPNativeAPI.framework in Frameworks */,
-				00F30818482F6E6781FD8285 /* Pods_HTTPNativeAPI_App.framework in Frameworks */,
+				D5FC8F9B193AFB6C5F996623 /* Pods_HTTPNativeAPI_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5A59381899A56B05171AA6A /* Pods_HTTPNativeAPI.framework in Frameworks */,
+				160B7285A8AB85F01AFA1129 /* Pods_HTTPNativeAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +158,7 @@
 				AFBC7054282EBB4600DBB163 /* HTTPNativeAPITests */,
 				AFBC702A282EBB0100DBB163 /* Products */,
 				B311876053B6BAF9AA80DD63 /* Pods */,
-				F1AEDFA5CD74558D49D40441 /* Frameworks */,
+				F309CCACC27D74FDA448DF0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,19 +226,19 @@
 		B311876053B6BAF9AA80DD63 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				85612BC29F27E2AC37D729A0 /* Pods-HTTPNativeAPI.debug.xcconfig */,
-				41A1399AC7A24A1C94686A95 /* Pods-HTTPNativeAPI.release.xcconfig */,
-				4F9E4618E6812A7445966C6F /* Pods-HTTPNativeAPI-App.debug.xcconfig */,
-				14D3F5872AED608A90D303AB /* Pods-HTTPNativeAPI-App.release.xcconfig */,
+				F43B630BE26F01ED36164ECD /* Pods-HTTPNativeAPI.debug.xcconfig */,
+				4FF8314C46EFEC4EE0413BF6 /* Pods-HTTPNativeAPI.release.xcconfig */,
+				B833EA825BC4A184CB170BCE /* Pods-HTTPNativeAPI-App.debug.xcconfig */,
+				5C5EE4A54B5C507ADFBD5405 /* Pods-HTTPNativeAPI-App.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F1AEDFA5CD74558D49D40441 /* Frameworks */ = {
+		F309CCACC27D74FDA448DF0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				15A8097998DF5C041990EDDE /* Pods_HTTPNativeAPI.framework */,
-				543CF3745DBF8331968666CC /* Pods_HTTPNativeAPI_App.framework */,
+				A483B978917A9FFB0B52EE52 /* Pods_HTTPNativeAPI.framework */,
+				444F26A2D73E6DC61B357E73 /* Pods_HTTPNativeAPI_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,12 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFBC703D282EBB0300DBB163 /* Build configuration list for PBXNativeTarget "HTTPNativeAPI-App" */;
 			buildPhases = (
-				FA216BA38EB0A417D3F80DFF /* [CP] Check Pods Manifest.lock */,
+				8538B03B23D2C5A81BD09D23 /* [CP] Check Pods Manifest.lock */,
 				AFBC7025282EBB0100DBB163 /* Sources */,
 				AFBC7026282EBB0100DBB163 /* Frameworks */,
 				AFBC7027282EBB0100DBB163 /* Resources */,
 				AFBC7072282EE2EF00DBB163 /* Embed Frameworks */,
-				145D87235035939AF549B740 /* [CP] Embed Pods Frameworks */,
+				62C8A46BFA621A7DD0D4B5E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,7 +282,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFBC705C282EBB4600DBB163 /* Build configuration list for PBXNativeTarget "HTTPNativeAPI" */;
 			buildPhases = (
-				34BAF58C6158EE456DE28E7F /* [CP] Check Pods Manifest.lock */,
+				DE91B98433A113BFF3033D30 /* [CP] Check Pods Manifest.lock */,
 				AFBC7040282EBB4500DBB163 /* Headers */,
 				AFBC7041282EBB4500DBB163 /* Sources */,
 				AFBC7042282EBB4500DBB163 /* Frameworks */,
@@ -386,7 +386,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		145D87235035939AF549B740 /* [CP] Embed Pods Frameworks */ = {
+		62C8A46BFA621A7DD0D4B5E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,29 +403,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HTTPNativeAPI-App/Pods-HTTPNativeAPI-App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		34BAF58C6158EE456DE28E7F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HTTPNativeAPI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA216BA38EB0A417D3F80DFF /* [CP] Check Pods Manifest.lock */ = {
+		8538B03B23D2C5A81BD09D23 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -441,6 +419,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-HTTPNativeAPI-App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE91B98433A113BFF3033D30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HTTPNativeAPI-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -640,7 +640,7 @@
 		};
 		AFBC703E282EBB0300DBB163 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F9E4618E6812A7445966C6F /* Pods-HTTPNativeAPI-App.debug.xcconfig */;
+			baseConfigurationReference = B833EA825BC4A184CB170BCE /* Pods-HTTPNativeAPI-App.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -683,7 +683,7 @@
 		};
 		AFBC703F282EBB0300DBB163 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14D3F5872AED608A90D303AB /* Pods-HTTPNativeAPI-App.release.xcconfig */;
+			baseConfigurationReference = 5C5EE4A54B5C507ADFBD5405 /* Pods-HTTPNativeAPI-App.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -726,9 +726,8 @@
 		};
 		AFBC705D282EBB4600DBB163 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85612BC29F27E2AC37D729A0 /* Pods-HTTPNativeAPI.debug.xcconfig */;
+			baseConfigurationReference = F43B630BE26F01ED36164ECD /* Pods-HTTPNativeAPI.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -760,9 +759,8 @@
 		};
 		AFBC705E282EBB4600DBB163 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41A1399AC7A24A1C94686A95 /* Pods-HTTPNativeAPI.release.xcconfig */;
+			baseConfigurationReference = 4FF8314C46EFEC4EE0413BF6 /* Pods-HTTPNativeAPI.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

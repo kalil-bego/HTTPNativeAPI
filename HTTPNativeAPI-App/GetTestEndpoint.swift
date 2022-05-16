@@ -8,8 +8,9 @@
 import Foundation
 import HTTPNativeAPI
 
-struct GetTestEndpoint: Endpoint, Get {
+struct GetTestEndpoint: Endpoint {
     var path: String { "/teste" }
+    var methods: [Methods] { [.get] }
     
     func call(success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void) {
         success(DataResponse(object: ["hello": "world"]))

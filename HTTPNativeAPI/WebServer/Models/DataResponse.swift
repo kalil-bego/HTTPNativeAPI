@@ -15,6 +15,6 @@ public struct DataResponse {
     }
 
     func getJSONResponse() -> [String: Any] {
-        ["sucesso": success, "data": object] as [String: Any]
+        ["data": object] as [String: Any]
     }
 }

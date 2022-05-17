@@ -39,8 +39,8 @@ public struct ServerManager: Server {
     public mutating func addEndpoint(_ endpoint: Endpoint) {
         endpoint.methods.forEach { method in
             let path = endpoint.path
-            let requestClass = endpoint.requestClass
             let pathRegex = "\(contextPath)\(path)($|[/?].*)" // "/bus/dmb"
+            let requestClass = method == .get ? GCDWebServerRequest.self : GCDWebServerDataRequest.self
 
             webServer.addHandler(
                 forMethod: method.rawValue,
@@ -51,6 +51,12 @@ public struct ServerManager: Server {
                 }
             )
             self.endpoints.append(endpoint)
+        }
+    }
+    
+    public mutating func addEndpoints(_ enpoints: [Endpoint]) {
+        endpoints.forEach { endpoint in
+            addEndpoint(endpoint)
         }
     }
 

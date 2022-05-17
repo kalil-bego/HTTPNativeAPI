@@ -9,17 +9,12 @@ import GCDWebServer
 
 public protocol Endpoint {
     var path: String { get }
-    var methods: [Methods] { get }
-    var requestClass: GCDWebServerRequest.Type { get }
+    var methods: [HTTPMethod] { get }
     func call(success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
     func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock))
 }
 
 public extension Endpoint {
-    var requestClass: GCDWebServerRequest.Type {
-        methods.contains(where: { $0 == .get }) ? GCDWebServerRequest.self : GCDWebServerDataRequest.self
-    }
-
     func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock)) {
 //        let dataRequest = (request as? GCDWebServerDataRequest)?.jsonObject as? [String: Any]
         var response: GCDWebServerDataResponse?

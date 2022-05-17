@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         server.addEndpoint(GetTestEndpoint())
+        server.addEndpoint(PostTestEndpoint())
 
         server.start(
             success: serverStarted(_:),

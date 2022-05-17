@@ -53,7 +53,7 @@ public struct ServerManager: Server {
             self.endpoints.append(endpoint)
         }
     }
-    
+
     public mutating func addEndpoints(_ enpoints: [Endpoint]) {
         endpoints.forEach { endpoint in
             addEndpoint(endpoint)

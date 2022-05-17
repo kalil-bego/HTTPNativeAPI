@@ -1,14 +1,14 @@
 //
-//  SessionIdManager.swift
+//  SessionManager.swift
 //  HTTPNativeAPI
 //
 //  Created by Kalil Bego on 16/05/22.
 //
 
-class SessionIdManager {
+class SessionManager {
     private var sessionID: String = ""
 
-    static let sharedInstance = SessionIdManager()
+    static let sharedInstance = SessionManager()
 
     func getInstance() -> String {
         if self.sessionID.isEmpty {

@@ -5,7 +5,6 @@
 //  Created by Kalil Bego on 16/05/22.
 //
 
-import Foundation
 import HTTPNativeAPI
 
 struct GetTestEndpoint: Endpoint {

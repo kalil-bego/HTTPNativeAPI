@@ -20,12 +20,10 @@ public extension Endpoint {
         var response: GCDWebServerDataResponse?
         call(success: { data in
             response = GCDWebServerDataResponse(jsonObject: data.getJSONResponse())
-            if let origin = request.headers["Origin"] {
-                response?.setValue(origin, forAdditionalHeader: "Access-Control-Allow-Origin")
-            }
         }, failure: { error in
             response = GCDWebServerDataResponse(jsonObject: error.getJSONResponse())
         })
+        response?.setValue(request.headers["Origin"], forAdditionalHeader: "Access-Control-Allow-Origin")
         completion(response)
     }
 }

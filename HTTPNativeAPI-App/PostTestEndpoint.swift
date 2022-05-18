@@ -8,10 +8,11 @@
 import HTTPNativeAPI
 
 struct PostTestEndpoint: Endpoint {
-    var path: String { "/teste" }
+    var path: String { "/testepost" }
     var methods: [HTTPMethod] { [.post] }
     
-    func call(success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void) {
+    func call(request: [String: Any]?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void) {
+        print(request)
         success(DataResponse(object: ["teste": "post"]))
     }
 }

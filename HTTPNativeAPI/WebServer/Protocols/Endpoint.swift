@@ -10,26 +10,104 @@ import GCDWebServer
 public protocol Endpoint {
     var path: String { get }
     var methods: [HTTPMethod] { get }
-    func call(request: [String: Any]?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
     func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock))
 }
 
+public protocol Get {
+    func call(success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
+}
+
+public protocol Post {
+    func call(body: Data?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
+}
+
+public protocol Put {
+    func call(body: Data?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
+}
+
+public protocol Delete {
+    func call(body: Data?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
+}
+
 public extension Endpoint {
+    var methods: [HTTPMethod] {
+        var list: [HTTPMethod] = []
+        switch self {
+        case is Post:
+            list.append(.post)
+        case is Put:
+            list.append(.put)
+        case is Delete:
+            list.append(.delete)
+        default:
+            list.append(.get)
+        }
+        return list
+    }
+}
+
+public extension Endpoint where Self: Get {
     func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock)) {
-        var response: GCDWebServerDataResponse?
         call(
-            request: getBody(request),
-            success: { data in
-                response = GCDWebServerDataResponse(jsonObject: data.getJSONResponse())
-            }, failure: { error in
-                response = GCDWebServerDataResponse(jsonObject: error.getJSONResponse())
-            }
+            success: successResponse(_:),
+            failure: failureResponse(_:)
         )
-        response?.setValue(request.headers["Origin"], forAdditionalHeader: "Access-Control-Allow-Origin")
+        setHeadersResponse(request: request)
         completion(response)
     }
-    
-    private func getBody(_ request: GCDWebServerRequest) -> [String: Any]? {
-        (request as? GCDWebServerDataRequest)?.jsonObject as? [String: Any]
+}
+
+public extension Endpoint where Self: Post {
+    func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock)) {
+        call(
+            body: getBody(request),
+            success: successResponse(_:),
+            failure: failureResponse(_:)
+        )
+        setHeadersResponse(request: request)
+        completion(response)
     }
+}
+
+public extension Endpoint where Self: Put {
+    func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock)) {
+        call(
+            body: getBody(request),
+            success: successResponse(_:),
+            failure: failureResponse(_:)
+        )
+        setHeadersResponse(request: request)
+        completion(response)
+    }
+}
+
+public extension Endpoint where Self: Delete {
+    func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock)) {
+        call(
+            body: getBody(request),
+            success: successResponse(_:),
+            failure: failureResponse(_:)
+        )
+        setHeadersResponse(request: request)
+        completion(response)
+    }
+}
+
+fileprivate var response: GCDWebServerDataResponse?
+
+fileprivate func successResponse(_ data: DataResponse) {
+    response = GCDWebServerDataResponse(jsonObject: data.getJSONResponse())
+}
+
+fileprivate func failureResponse(_ error: DataError) {
+    response = GCDWebServerDataResponse(jsonObject: error.getJSONResponse())
+}
+
+fileprivate func setHeadersResponse(request: GCDWebServerRequest) {
+    response?.setValue(request.headers["Origin"], forAdditionalHeader: "Access-Control-Allow-Origin")
+}
+
+fileprivate func getBody(_ request: GCDWebServerRequest) -> Data? {
+    let dataRequest: GCDWebServerDataRequest? = request as? GCDWebServerDataRequest
+    return dataRequest?.data
 }

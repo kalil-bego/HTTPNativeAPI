@@ -7,12 +7,19 @@
 
 import HTTPNativeAPI
 
-struct PostTestEndpoint: Endpoint {
+struct PostTestEndpoint: Endpoint, Post {
     var path: String { "/testepost" }
-    var methods: [HTTPMethod] { [.post] }
     
-    func call(request: [String: Any]?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void) {
-        print(request)
-        success(DataResponse(object: ["teste": "post"]))
+    func call(body: Data?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void) {
+        do {
+            let json = try JSONDecoder().decode(PostTestEndpointData.self, from: body ?? Data())
+            success(DataResponse(object: ["teste": json.data]))
+        } catch let error {
+            failure(DataError(description: error.localizedDescription))
+        }
     }
+}
+
+struct PostTestEndpointData: Decodable {
+    let data: String
 }

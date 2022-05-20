@@ -44,6 +44,16 @@ public extension Endpoint {
         }
         return list
     }
+    
+    func decodeObject<T: Decodable>(model: T.Type, data: Data) -> T? {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(model.self, from: data)
+            return decodedData
+        } catch {
+            return nil
+        }
+    }
 }
 
 public extension Endpoint where Self: Get {

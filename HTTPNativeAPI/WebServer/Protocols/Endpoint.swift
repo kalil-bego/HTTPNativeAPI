@@ -17,42 +17,41 @@ public protocol Get {
     func call(success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
 }
 
-public protocol Post {
-    func call(body: Data?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
+public protocol Post: PostBase {
+    associatedtype DecodableModel: Decodable
+    func call(model: DecodableModel, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
 }
 
-public protocol Put {
-    func call(body: Data?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
+public protocol Put: PutBase {
+    associatedtype DecodableModel: Decodable
+    func call(model: DecodableModel, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
 }
 
-public protocol Delete {
-    func call(body: Data?, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
+public protocol Delete: DeleteBase {
+    associatedtype DecodableModel: Decodable
+    func call(model: DecodableModel, success: @escaping (DataResponse) -> Void, failure: @escaping (DataError) -> Void)
 }
+
+public protocol PostBase {}
+
+public protocol PutBase {}
+
+public protocol DeleteBase {}
 
 public extension Endpoint {
     var methods: [HTTPMethod] {
         var list: [HTTPMethod] = []
         switch self {
-        case is Post:
+        case is PostBase:
             list.append(.post)
-        case is Put:
+        case is PutBase:
             list.append(.put)
-        case is Delete:
+        case is DeleteBase:
             list.append(.delete)
         default:
             list.append(.get)
         }
         return list
-    }
-    
-    func decodeObject<T: Decodable>(model: T.Type, data: Data) -> T? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedData = try decoder.decode(model.self, from: data)
-            return decodedData
-        } catch {
-            return nil
-        }
     }
 }
 
@@ -69,11 +68,15 @@ public extension Endpoint where Self: Get {
 
 public extension Endpoint where Self: Post {
     func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock)) {
-        call(
-            body: getBody(request),
-            success: successResponse(_:),
-            failure: failureResponse(_:)
-        )
+        do {
+            call(
+                model: try parseModel(request, model: DecodableModel.self),
+                success: successResponse(_:),
+                failure: failureResponse(_:)
+            )
+        } catch let error {
+            failureResponse(DataError(description: String(describing: error)))
+        }
         setHeadersResponse(request: request)
         completion(response)
     }
@@ -81,11 +84,15 @@ public extension Endpoint where Self: Post {
 
 public extension Endpoint where Self: Put {
     func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock)) {
-        call(
-            body: getBody(request),
-            success: successResponse(_:),
-            failure: failureResponse(_:)
-        )
+        do {
+            call(
+                model: try parseModel(request, model: DecodableModel.self),
+                success: successResponse(_:),
+                failure: failureResponse(_:)
+            )
+        } catch let error {
+            failureResponse(DataError(description: error.localizedDescription))
+        }
         setHeadersResponse(request: request)
         completion(response)
     }
@@ -93,11 +100,15 @@ public extension Endpoint where Self: Put {
 
 public extension Endpoint where Self: Delete {
     func process(request: GCDWebServerRequest, completion: @escaping (GCDWebServerCompletionBlock)) {
-        call(
-            body: getBody(request),
-            success: successResponse(_:),
-            failure: failureResponse(_:)
-        )
+        do {
+            call(
+                model: try parseModel(request, model: DecodableModel.self),
+                success: successResponse(_:),
+                failure: failureResponse(_:)
+            )
+        } catch let error {
+            failureResponse(DataError(description: error.localizedDescription))
+        }
         setHeadersResponse(request: request)
         completion(response)
     }
@@ -117,7 +128,10 @@ fileprivate func setHeadersResponse(request: GCDWebServerRequest) {
     response?.setValue(request.headers["Origin"], forAdditionalHeader: "Access-Control-Allow-Origin")
 }
 
-fileprivate func getBody(_ request: GCDWebServerRequest) -> Data? {
+fileprivate func parseModel<T: Decodable>(_ request: GCDWebServerRequest, model: T.Type) throws -> T {
     let dataRequest: GCDWebServerDataRequest? = request as? GCDWebServerDataRequest
-    return dataRequest?.data
+    let data = dataRequest?.data ?? Data()
+    let decoder = JSONDecoder()
+    let decodedData = try decoder.decode(model.self, from: data)
+    return decodedData
 }

@@ -7,10 +7,12 @@
 
 import GCDWebServer
 
+public typealias Model = Endpoint
+
 public struct ServerManager: Server {
     internal var port: UInt
     private var contextPath: String
-    private var endpoints: [Endpoint]
+    private var endpoints: [Model]
     private let webServer: GCDWebServer = GCDWebServer()
 
     public init(port: UInt, contextPath: String) {
@@ -36,7 +38,7 @@ public struct ServerManager: Server {
         webServer.stop()
     }
 
-    public mutating func addEndpoint(_ endpoint: Endpoint) {
+    public mutating func addEndpoint(_ endpoint: Model) {
         endpoint.methods.forEach { method in
             let path = endpoint.path
             let pathRegex = "\(contextPath)\(path)($|[/?].*)" // "/bus/dmb"
@@ -54,13 +56,13 @@ public struct ServerManager: Server {
         }
     }
 
-    public mutating func addEndpoints(_ enpoints: [Endpoint]) {
+    public mutating func addEndpoints(_ enpoints: [Model]) {
         endpoints.forEach { endpoint in
             addEndpoint(endpoint)
         }
     }
 
-    public func getEndpoints() -> [Endpoint] { self.endpoints }
+    public func getEndpoints() -> [Model] { self.endpoints }
 
     public func getContextPath() -> String { self.contextPath }
 }

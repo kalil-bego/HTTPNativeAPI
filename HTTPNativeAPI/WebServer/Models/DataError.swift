@@ -6,15 +6,14 @@
 //
 
 public struct DataError {
-    let status: Int
+    let success: Bool = false
     let description: String
     
-    public init(status: Int = 500, description: String) {
-        self.status = status
+    public init(description: String) {
         self.description = description
     }
     
     func getJSONResponse() -> [String: Any] {
-        ["description": description] as [String: Any]
+        ["sucesso": success, "description": description] as [String: Any]
     }
 }

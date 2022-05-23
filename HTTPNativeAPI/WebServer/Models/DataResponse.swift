@@ -15,6 +15,6 @@ public struct DataResponse {
     }
 
     func getJSONResponse() -> [String: Any] {
-        ["data": object] as [String: Any]
+        ["sucesso": success].merging(object) { (current, _) in current } as [String: Any]
     }
 }
